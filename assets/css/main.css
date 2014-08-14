@@ -1,0 +1,104 @@
+body {}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+header#top {
+  background: #0f252e;
+  color: #fff;
+  margin-bottom: 0px;
+}
+
+header#top a {
+  color: #fff;
+}
+
+header#top .nav>li.active>a {
+  background: #144357;
+}
+
+header#top .nav>li>a:hover, .nav>li>a:focus {
+  background: #1b5b75;
+}
+
+header#top a.att {
+}
+
+header#top .nav>li>a.att:hover, .nav>li>a.att:focus {
+  background: #439643;
+}
+
+.page-header h1 {
+  font-size: 46px;
+}
+
+.post-header h1 {
+  font-size: 46px;
+}
+
+.post-content img {
+  margin: 50px;
+}
+
+.page-side {
+}
+
+.page-side.affix {
+  top:20px;
+  position:fixed;
+}
+
+.toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li {
+  padding: 5px 10px;
+}
+
+.toc a {
+  display: block;
+}
+
+.toc .toc-h2 {
+  padding-left: 20px;
+}
+
+.toc .toc-h3 {
+  padding-left: 30px;
+}
+
+.toc .toc-active {
+}
+
+.toc .toc-active a {
+  color: #000;
+  font-weight: bold;
+}
+
+.back-to-top {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 4px 10px;
+}
+.page-content img {
+  max-width: 100%;
+}
+.jumbotron{
+  /*
+  background-image: url('/assets/images/arch.jpg');
+  */
+  color:#fff; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-color: #1c6b80;
+}
+.copyright{
+  text-align: center;
+}
+

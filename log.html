@@ -1,0 +1,43 @@
+---
+layout: default
+title: "ChangeLog"
+permalink: /log/
+---
+
+
+<div class="container" style="margin-top:30px">
+
+  <div class="row">
+    <div class="col-md-9" role="main">
+      {% for post in site.posts %}
+      <div>
+        <h1><a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+        <div class="row" style="margin-top:30px">
+
+          {% if post.content contains '<!--more-->' %}
+            {{ post.content | split:'<!--more-->' | first }}
+          {% else %}
+            {{ post.excerpt }}
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+      <div class="post-side">
+        <div class="toc">
+          <ul>
+            {% for post in site.posts %}
+            <li>
+            <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <a class="back-to-top" href="#top">
+          Back to top
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

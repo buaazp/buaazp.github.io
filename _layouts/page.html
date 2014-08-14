@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="container page">
+  <div class="row">
+    <div class="page-header">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</a></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9" role="main">
+      <div class="page-content">
+      {{content}}
+      </div>
+    </div>
+    <div class="col-md-3" role="side">
+      <div class="page-side">
+        <div class="toc">
+        </div>
+        <a class="back-to-top" href="#top">
+          Back to top
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
