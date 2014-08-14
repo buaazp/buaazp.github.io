@@ -6,7 +6,7 @@ permalink: /downloads/
 
 ### Source
 
-Project zimg is an open source software in [BSD licence](/documents/licence/). The newest version of zimg can be get from github:
+Project zimg is an open source software in [BSD license](/documents/license/). The newest version of zimg can be get from github:
 
 {% highlight Bash shell scripts %}
 git clone https://github.com/buaazp/zimg -b master --depth=1

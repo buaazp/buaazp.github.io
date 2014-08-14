@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Licence
-permalink: /documents/licence/
+permalink: /documents/license/
 ---
 
 ### The zimg license information

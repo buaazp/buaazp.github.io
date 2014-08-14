@@ -57,4 +57,4 @@ How you use zimg, and how zimg helps you
 
 ### License
 
-- Project zimg is released under the three clause BSD license. You can find [additional information in our license page](/documents/licence/).
+- Project zimg is released under the three clause BSD license. You can find [additional information in our license page](/documents/license/).
