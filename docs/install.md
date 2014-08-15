@@ -5,7 +5,43 @@ permalink: /documents/install/
 ---
 
 
-There are several dependences of zimg you should build before using zimg. And the version of cmake should >= 2.8, libevent should >= 2.0, libmemcached should >= 1.0.18.
+There are several dependences of zimg you should build and install before using zimg. And the version of cmake should >= 2.8, libevent should >= 2.0, libmemcached should >= 1.0.18.
+
+### Using Package Manage Tools
+
+#### Mac OS X
+
+If you are using Mac OS, building dependences through brew is easy.
+
+{% highlight Bash shell scripts %}
+brew install openssl cmake libevent libmemcached libjpeg giflib libpng
+{% endhighlight %}
+
+#### Linux
+
+If you are using Ubuntu, CentOS or other Linux distributions, you can get the libraries through its package manage tool. 
+
+*NOTE 1*: **But some of their packages are too old for zimg**. You may need to build them by source. 
+
+For example, CentOS has low version of cmake, libevent and libmemcached.
+
+*NOTE 2*: Because of the different naming rules, some of the Linux package manage tool use xxx-dev or xxx-devel as the development package name. You may need to install these packages to build zimg.
+
+For example, in CentOS you need install:
+
+{% highlight Bash shell scripts %}
+sudo yum install openssl-devel cmake libevent-devel libmemcached-devel libjpeg-devel giflib-devel libpng-devel
+{% endhighlight %}
+
+While in Ubuntu you need install these packages:
+
+{% highlight Bash shell scripts %}
+sudo apt-get install openssl cmake libevent-dev libmemcached-dev libjpeg-dev libgif-dev libpng-dev
+{% endhighlight %}
+
+If you ensure the dependence packages are fit for zimg, goto [zimg build](/documents/install/#build-zimg) section.
+
+### Build Dependences by Source Code
 
 #### openssl
 
@@ -35,7 +71,6 @@ tar zxvf libevent-2.0.17-stable.tar.gz
 make && make install 
 {% endhighlight %}
 
-
 #### libmemcached
 
 {% highlight Bash shell scripts %}
@@ -46,71 +81,21 @@ cd libmemcached-1.0.18
 make &&　make install 
 {% endhighlight %}
 
-#### libjpeg
+#### libjpeg or libjpeg-turbo ( recommend )
 
 {% highlight Bash shell scripts %}
-wget
+wget https://downloads.sourceforge.net/project/libjpeg-turbo/1.3.1/libjpeg-turbo-1.3.1.tar.gz
+tar zxvf libjpeg-turbo-1.3.1.tar.gz
+cd libjpeg-turbo-1.3.1
+./configure --prefix=/usr/local --with-jpeg8
+make && make install
 {% endhighlight %}
 
-#### libgif
+#### giflib and libpng
 
-{% highlight Bash shell scripts %}
-wget
-{% endhighlight %}
+Just using your system package. Source code build is unnecessary.
 
-#### libpng
-
-{% highlight Bash shell scripts %}
-wget
-{% endhighlight %}
-
-#### memcached（optional）
-
-{% highlight Bash shell scripts %}
-wget http://www.memcached.org/files/memcached-1.4.19.tar.gz
-tar zxvf memcached-1.4.19.tar.gz
-cd memcached-1.4.19
-./configure --prefix=/usr/local
-make
-make install
-{% endhighlight %}
-
-#### beansdb（optional）
-
-{% highlight Bash shell scripts %}
-git clone https://github.com/douban/beansdb
-cd beansdb
-./configure --prefix=/usr/local
-make
-{% endhighlight %}
-
-#### benseye (optional)
-
-{% highlight Bash shell scripts %}
-git clone git@github.com:douban/beanseye.git
-cd beanseye
-make
-{% endhighlight %}
-
-#### SSDB（optional）
-
-{% highlight Bash shell scripts %}
-wget --no-check-certificate https://github.com/ideawu/ssdb/archive/master.zip
-unzip master
-cd ssdb-master
-make
-{% endhighlight %}
-
-#### twemproxy（optional）
-
-{% highlight Bash shell scripts %}
-git clone git@github.com:twitter/twemproxy.git
-cd twemproxy
-autoreconf -fvi
-./configure --enable-debug=log
-make
-src/nutcracker -h
-{% endhighlight %}
+### Build zimg
 
 #### zimg
 
@@ -121,3 +106,57 @@ git clone https://github.com/buaazp/zimg -b master --depth=1
 cd zimg   
 make  
 {% endhighlight %}
+
+If you want to enable cache to improve performance, or you want to store the images to a distributed storage backend, the softwares below is optional.
+
+### Build Optional Storage Backends
+
+#### memcached ( optional )
+
+{% highlight Bash shell scripts %}
+wget http://www.memcached.org/files/memcached-1.4.19.tar.gz
+tar zxvf memcached-1.4.19.tar.gz
+cd memcached-1.4.19
+./configure --prefix=/usr/local
+make
+make install
+{% endhighlight %}
+
+#### beansdb ( optional )
+
+{% highlight Bash shell scripts %}
+git clone https://github.com/douban/beansdb
+cd beansdb
+./configure --prefix=/usr/local
+make
+{% endhighlight %}
+
+#### benseye ( optional )
+
+{% highlight Bash shell scripts %}
+git clone git@github.com:douban/beanseye.git
+cd beanseye
+make
+{% endhighlight %}
+
+#### SSDB ( optional )
+
+{% highlight Bash shell scripts %}
+wget --no-check-certificate https://github.com/ideawu/ssdb/archive/master.zip
+unzip master
+cd ssdb-master
+make
+{% endhighlight %}
+
+#### twemproxy ( optional ) 
+
+{% highlight Bash shell scripts %}
+git clone git@github.com:twitter/twemproxy.git
+cd twemproxy
+autoreconf -fvi
+./configure --enable-debug=log
+make
+src/nutcracker -h
+{% endhighlight %}
+
+
