@@ -27,15 +27,17 @@ And you can get the information of image in zimg server like this:
 
 ### Benchmarks
 
-- [Benchmark of zimg v3.0](): This benchmark test show you how fast zimg v3 is when we used webimg as image processing library.
-- [Benchmark of zimg v2.0](): This benckmark test is aim to test the performance of different storage backends include disk, beansdb and SSDB.
-- [Benchmark of zimg v1.0](): The first benchmark of zimg which tested concurrency processing ability of zimg and PHP.
+- [Benchmark of zimg v3.0](/documents/benchmark_v3/): This benchmark test show you how fast zimg v3 is when we used webimg as image processing library.
+- [Benchmark of zimg v2.0](/documents/benchmark_v2/): This benckmark test is aim to test the performance of different storage backends include disk, beansdb and SSDB.
+- [Benchmark of zimg v1.0](/documents/benchmark_v1/): The first benchmark of zimg which tested concurrency processing ability of zimg and PHP.
 
 ### Design and Architecture
 
+*These articles are written in Chinese.*
+
 - [Design of zimg v3.0]()	
-- [Distributed Image Storage Server: zimg](): Introduction to zimg's distributed storage architecture.
-- [Architecture and Design of An Image Server](): Introduction to zimg's purpose of design and its function theory.
+- [Distributed Image Storage Server: zimg](/documents/Distributed_Image_Storage_Server_zimg/): Introduction to zimg's distributed storage architecture.
+- [Architecture and Design of An Image Server](/documents/Architecture_Design_of_Image_Server/): Introduction to zimg's purpose of design and its function theory.
 
 ### Use cases
 
@@ -43,13 +45,13 @@ And you can get the information of image in zimg server like this:
 
 If your company or product is using zimg. Please send an email to us `zp@buaa.us` and we will add you to the use cases list. Maybe you can provide informations below:
 
-{% highlight Bash shell scripts %}
+```bash
 Company name
 LOGO(as attachment)
 Website link
 Company/production description
 How you use zimg, and how zimg helps you
-{% endhighlight %}
+```
 
 ### Sponsors
 

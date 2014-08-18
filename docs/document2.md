@@ -4,12 +4,6 @@ title: Distributed_Image_Storage_Server_zimg
 permalink: /documents/Distributed_Image_Storage_Server_zimg/
 ---
 
-# zimg新版本发布，支持分布式存储
-
-#### Distributed Image Storage Server: zimg
-
-[@招牌疯子](http://weibo.com/buaazp)
-
 ## 关于zimg
 [zimg](http://zimg.buaa.us/)是我去年开源的一个图片存储程序，主要的优点是可以根据请求实时处理图片，并且进行压缩和存储，一是方便前端用户，二来降低流量。zimg设计之初就是面向中小型应用，是存储量小于TB级别的单机存储方案。它的1.0版本主要竞争对手是基于Nginx+PHP的图片服务器，因为采用了特殊的策略，zimg会比PHP快出很多。  
 然而由于移动设备普及等原因，对图片服务器的存储能力提出了更高的要求，不仅需要支持更大的容量，还要具备冗余备份等功能。我也一直在寻找解决办法，希望使zimg满足大家的需求。  

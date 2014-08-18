@@ -13,9 +13,9 @@ There are several dependences of zimg you should build and install before using 
 
 If you are using Mac OS, building dependences through brew is easy.
 
-{% highlight Bash shell scripts %}
+```bash
 brew install openssl cmake libevent libmemcached libjpeg giflib libpng
-{% endhighlight %}
+```
 
 #### Linux
 
@@ -29,15 +29,15 @@ For example, CentOS has low version of cmake, libevent and libmemcached.
 
 For example, in CentOS you need install:
 
-{% highlight Bash shell scripts %}
+```bash
 sudo yum install openssl-devel cmake libevent-devel libmemcached-devel libjpeg-devel giflib-devel libpng-devel
-{% endhighlight %}
+```
 
 While in Ubuntu you need install these packages:
 
-{% highlight Bash shell scripts %}
+```bash
 sudo apt-get install openssl cmake libevent-dev libmemcached-dev libjpeg-dev libgif-dev libpng-dev
-{% endhighlight %}
+```
 
 If you ensure the dependence packages are fit for zimg, goto [zimg build](/documents/install/#build-zimg) section.
 
@@ -45,51 +45,51 @@ If you ensure the dependence packages are fit for zimg, goto [zimg build](/docum
 
 #### openssl
 
-{% highlight Bash shell scripts %}
+```bash
 wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz
 tar zxvf  openssl-1.0.1g.tar.gz
 ./config shared --prefix=/usr/local --openssldir=/usr/ssl
 make && make install 
-{% endhighlight %}
+```
 
 #### cmake
 
-{% highlight Bash shell scripts %}
+```bash
 wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz
 tar xzvf cmake-2.8.10.2.tar.gz 
 cd cmake-2.8.10.2 
 ./bootstrap --prefix=/usr/local 
 make && make install 
-{% endhighlight %}
+```
 
 #### libevent
 
-{% highlight Bash shell scripts %}
+```bash
 wget http://cloud.github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz 
 tar zxvf libevent-2.0.17-stable.tar.gz 
 ./configure --prefix=/usr/local 
 make && make install 
-{% endhighlight %}
+```
 
 #### libmemcached
 
-{% highlight Bash shell scripts %}
+```bash
 wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz
 tar zxvf libmemcached-1.0.18.tar.gz
 cd libmemcached-1.0.18
 ./configure -prefix=/usr/local 
 make &&　make install 
-{% endhighlight %}
+```
 
 #### libjpeg or libjpeg-turbo ( recommend )
 
-{% highlight Bash shell scripts %}
+```bash
 wget https://downloads.sourceforge.net/project/libjpeg-turbo/1.3.1/libjpeg-turbo-1.3.1.tar.gz
 tar zxvf libjpeg-turbo-1.3.1.tar.gz
 cd libjpeg-turbo-1.3.1
 ./configure --prefix=/usr/local --with-jpeg8
 make && make install
-{% endhighlight %}
+```
 
 #### giflib and libpng
 
@@ -101,11 +101,11 @@ Just using your system package. Source code build is unnecessary.
 
 Now you can build zimg itself. If you want to gdb zimg, you can use `make debug` option.
 
-{% highlight Bash shell scripts %}
+```bash
 git clone https://github.com/buaazp/zimg -b master --depth=1
 cd zimg   
 make  
-{% endhighlight %}
+```
 
 If you want to enable cache to improve performance, or you want to store the images to a distributed storage backend, the softwares below is optional.
 
@@ -113,50 +113,50 @@ If you want to enable cache to improve performance, or you want to store the ima
 
 #### memcached ( optional )
 
-{% highlight Bash shell scripts %}
+```bash
 wget http://www.memcached.org/files/memcached-1.4.19.tar.gz
 tar zxvf memcached-1.4.19.tar.gz
 cd memcached-1.4.19
 ./configure --prefix=/usr/local
 make
 make install
-{% endhighlight %}
+```
 
 #### beansdb ( optional )
 
-{% highlight Bash shell scripts %}
+```bash
 git clone https://github.com/douban/beansdb
 cd beansdb
 ./configure --prefix=/usr/local
 make
-{% endhighlight %}
+```
 
 #### benseye ( optional )
 
-{% highlight Bash shell scripts %}
+```bash
 git clone git@github.com:douban/beanseye.git
 cd beanseye
 make
-{% endhighlight %}
+```
 
 #### SSDB ( optional )
 
-{% highlight Bash shell scripts %}
+```bash
 wget --no-check-certificate https://github.com/ideawu/ssdb/archive/master.zip
 unzip master
 cd ssdb-master
 make
-{% endhighlight %}
+```
 
 #### twemproxy ( optional ) 
 
-{% highlight Bash shell scripts %}
+```bash
 git clone git@github.com:twitter/twemproxy.git
 cd twemproxy
 autoreconf -fvi
 ./configure --enable-debug=log
 make
 src/nutcracker -h
-{% endhighlight %}
+```
 
 
