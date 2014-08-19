@@ -23,7 +23,7 @@ And you can get the information of image in zimg server like this:
 
 - [Download and Install](/documents/install): Introduction to get and build zimg.
 - [Get Started](/documents/guidebook/): The tutorials of how to use zimg.
-- [API of zimg-lua scripts](): Guide you how to build a custom image processing server by programming with zimg-lua.
+- [API of zimg-lua scripts](/documents/api_of_zimg_lua/): Guide you how to build a custom image processing server by programming with zimg-lua.
 
 ### Benchmarks
 

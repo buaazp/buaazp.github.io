@@ -9,7 +9,7 @@ permalink: /downloads/
 [![Build Status](https://travis-ci.org/buaazp/zimg.svg?branch=master)](https://travis-ci.org/buaazp/zimg)
 [![Build Status](https://drone.io/github.com/buaazp/zimg/status.png)](https://drone.io/github.com/buaazp/zimg/latest)  
 
-Project zimg is an open source software in [BSD license](/documents/license/). The newest version of zimg can be get from github:
+Project zimg is an open source software in [the three clause BSD license](/documents/license/). The newest version of zimg can be get from github:
 
 ```bash
 git clone https://github.com/buaazp/zimg -b master --depth=1
