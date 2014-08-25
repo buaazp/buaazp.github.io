@@ -81,7 +81,9 @@ cd libmemcached-1.0.18
 make &&　make install 
 ```
 
-#### libjpeg or libjpeg-turbo ( recommend )
+#### libjpeg-turbo ( recommend )
+
+To build libjpeg-turbo you must install nasm first.
 
 ```bash
 wget https://downloads.sourceforge.net/project/libjpeg-turbo/1.3.1/libjpeg-turbo-1.3.1.tar.gz
@@ -91,7 +93,7 @@ cd libjpeg-turbo-1.3.1
 make && make install
 ```
 
-#### giflib and libpng
+#### libjpeg, giflib and libpng
 
 Just using your system package. Source code build is unnecessary.
 

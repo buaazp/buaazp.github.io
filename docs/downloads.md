@@ -25,10 +25,10 @@ Source build is our recommend way to get zimg. If you are skilled in your operat
 
 ### ChangeLog
 
-##### 08/22/2014 - zimg v3.0.0
+##### 08/28/2014 - zimg v3.0.0
 
 - Use high performance image processing library webimg.
-- More arguments in url to processing image.
+- More parameters in url to processing image.
 - Support lua scripts to deal with customize compress strategy.
 - Broswer and client cache control.  
 - Admin page and delete image function.  

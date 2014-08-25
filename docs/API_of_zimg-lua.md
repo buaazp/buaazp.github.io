@@ -25,7 +25,7 @@ local type_list = {
 
 function f()
     local code = -1
-    local rtype = zimg.type() --Get the request type from url argument
+    local rtype = zimg.type() --Get the request type from url parameter
 
     local arg = type_list[rtype] --Find the type details
     if not arg then
@@ -66,18 +66,18 @@ zimg-lua has some APIs for users to call the functions in zimg. All the APIs lis
 
 
 - `zimg.type()` - Get the type of request. Return a string value.
-- `zimg.ret(result)` - Return the result to zimg. Argument needs 0 for succ and -1 for failed. None return.
+- `zimg.ret(result)` - Return the result to zimg. Parameter needs 0 for succ and -1 for failed. None return.
 - `zimg.cols()` - Get the width of image. Return an integer value.
 - `zimg.rows()` - Get the height of image. Return an integer value.
 - `zimg.quality()` - Get the quality of image. Return an integer value.
 - `zimg.format()` - Get the format of image. Return a string value.
-- `zimg.scale(cols, rows)` - Scale an image with args coles and rows. Arguments need two integers. Return 0 for succ and -1 for failed.
-- `zimg.crop(x, y, cols, rows)` - Crop an image with args x, y, cols and rows. Arguments need four integers. Return 0 for succ and -1 for failed.
+- `zimg.scale(cols, rows)` - Scale an image with args coles and rows. Parameters need two integers. Return 0 for succ and -1 for failed.
+- `zimg.crop(x, y, cols, rows)` - Crop an image with args x, y, cols and rows. Parameters need four integers. Return 0 for succ and -1 for failed.
 - `zimg.gray()` - Grayscale an image. Return 0 for succ and -1 for failed.
 - `zimg.set_quality(quality)` - Set the quality of image. Nont return.
-- `zimg.set_format(format)` - Set the format of image. Return 0 for succ and -1 for failed. Argument needs format string in this list:  
+- `zimg.set_format(format)` - Set the format of image. Return 0 for succ and -1 for failed. Parameter needs format string in this list:  
 	{'JPEG', 'WEBP', 'GIF', 'PNG'}
-- `log.print(loglevel, string)` - Record a log to zimg's log. None retrun. Arguments need an integer for loglevel as below and a string for message.
+- `log.print(loglevel, string)` - Record a log to zimg's log. None retrun. Parameters need an integer for loglevel as below and a string for message.
 
 	```
 	LOG_FATAL = 0
