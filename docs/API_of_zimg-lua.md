@@ -14,18 +14,20 @@ There is a simple sample script only has one type `test`. It scales image to 100
 
 ```lua
 local type_list = {
-	test100 = {
-		cols                = 100,
-		rows				= 100,
+	test = {
+		cols                = 300,
+		rows				= 300,
 		quality			    = 75,
+		rotate              = 90,
 		gray			    = 1,
-        format              = 'WEBP',
+        format              = 'webp',
 	},
 }
+local OK                    = 1
 
-function f()
+function f() --The main function must be named f() for zimg-lua
     local code = -1
-    local rtype = zimg.type() --Get the request type from url parameter
+    local rtype = zimg.type() --Get the request type from url argument
 
     local arg = type_list[rtype] --Find the type details
     if not arg then
@@ -33,29 +35,39 @@ function f()
     end
 
     local ret = zimg.scale(arg.cols, arg.rows) --Scale image
-    if ret ~= 0 then
+    if ret ~= OK then
         zimg.ret(code)
     end
 
-    if arg.quality and zimg.quality() > arg.quality then
-        zimg.set_quality(arg.quality) --Set quality of image
-    end
-
-    if arg.format then
-        ret = zimg.set_format(arg.format) --Set format
-        if ret ~= 0 then
+    if arg.rotate then
+        ret = zimg.rotate(arg.rotate) --Rotate image
+        if ret ~= OK then
             zimg.ret(code)
         end
     end
 
     if arg.gray and arg.gray == 1 then
         ret = zimg.gray() --Grayscale image
-        if ret ~= 0 then
+        if ret ~= OK then
             zimg.ret(code)
         end
     end
 
-    code = 0
+    if arg.quality and zimg.quality() > arg.quality then
+        ret = zimg.set_quality(arg.quality) --Set quality of image
+        if ret ~= OK then
+            zimg.ret(code)
+        end
+    end
+
+    if arg.format then
+        ret = zimg.set_format(arg.format) --Set format
+        if ret ~= OK then
+            zimg.ret(code)
+        end
+    end
+
+    code = OK
     zimg.ret(code) --Return the result to zimg
 end
 ```
@@ -71,12 +83,12 @@ zimg-lua has some APIs for users to call the functions in zimg. All the APIs lis
 - `zimg.rows()` - Get the height of image. Return an integer value.
 - `zimg.quality()` - Get the quality of image. Return an integer value.
 - `zimg.format()` - Get the format of image. Return a string value.
-- `zimg.scale(cols, rows)` - Scale an image with args coles and rows. Parameters need two integers. Return 0 for succ and -1 for failed.
-- `zimg.crop(x, y, cols, rows)` - Crop an image with args x, y, cols and rows. Parameters need four integers. Return 0 for succ and -1 for failed.
-- `zimg.gray()` - Grayscale an image. Return 0 for succ and -1 for failed.
-- `zimg.set_quality(quality)` - Set the quality of image. Nont return.
-- `zimg.set_format(format)` - Set the format of image. Return 0 for succ and -1 for failed. Parameter needs format string in this list:  
-	{'JPEG', 'WEBP', 'GIF', 'PNG'}
+- `zimg.scale(cols, rows)` - Scale an image with args coles and rows. Parameters need two integers. Return 1 for succ and -1 for failed.
+- `zimg.crop(x, y, cols, rows)` - Crop an image with args x, y, cols and rows. Parameters need four integers. Return 1 for succ and -1 for failed.
+- `zimg.rotate(angle)` - Rotates an image the specified number of degrees. Parameters need an angle. Return 1 for succ and -1 for failed.
+- `zimg.gray()` - Grayscale an image. Return 1 for succ and -1 for failed.
+- `zimg.set_quality(quality)` - Set the quality of image. Return 1 for succ and -1 for failed.
+- `zimg.set_format(format)` - Set the format of image. Return 1 for succ and -1 for failed. Parameter needs format string.
 - `log.print(loglevel, string)` - Record a log to zimg's log. None retrun. Parameters need an integer for loglevel as below and a string for message.
 
 	```

@@ -234,31 +234,3 @@ Running 30s test @ http://127.0.0.1:4869/5f189d8ec57f5a5a0d3dcba47fa797e2?t=test
 Requests/sec:   1321.39
 Transfer/sec:      2.56MB
 ```
-
-### HTTP echo Test
-
-```bash
-➜ wrk git:(master) ✗ wrk -v -c300 -t8 -d30s "http://127.0.0.1:4869/echo"
-wrk 3.1.1 [epoll] Copyright (C) 2012 Will Glozer
-Running 30s test @ http://127.0.0.1:4869/echo
-  8 threads and 300 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.60ms   29.02ms 587.80ms   99.69%
-    Req/Sec    12.05k     3.96k   27.89k    69.18%
-  2734945 requests in 30.00s, 354.72MB read
-  Socket errors: connect 0, read 2734910, write 0, timeout 10
-Requests/sec:  91177.88
-Transfer/sec:     11.83MB
-
-➜ wrk git:(master) ✗ wrk -v -c300 -t8 -d30s "http://127.0.0.1:4869/echo"
-wrk 3.1.1 [epoll] Copyright (C) 2012 Will Glozer
-Running 30s test @ http://127.0.0.1:4869/echo
-  8 threads and 300 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     3.51ms   37.83ms 750.66ms   99.53%
-    Req/Sec    11.94k     4.05k   28.22k    69.24%
-  2710556 requests in 29.99s, 374.82MB read
-  Socket errors: connect 0, read 2710497, write 0, timeout 0
-Requests/sec:  90369.03
-Transfer/sec:     12.50MB
-```
