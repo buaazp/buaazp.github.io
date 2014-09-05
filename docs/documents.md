@@ -29,7 +29,7 @@ http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?info=1
 
 *These articles are written in Chinese.*
 
-- [Design of zimg v3.1](/documents/design_of_zimg_new_generation/): Talk abount zimg new generation.	
+- [Design of zimg New Generation](/documents/design_of_zimg_new_generation/): Talk abount zimg new generation.
 - [Distributed Image Storage Server: zimg](/documents/Distributed_Image_Storage_Server_zimg/): Introduction to zimg's distributed storage architecture.
 - [Architecture and Design of An Image Server](/documents/Architecture_Design_of_Image_Server/): Introduction to zimg's purpose of design and its function theory.
 

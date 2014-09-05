@@ -9,7 +9,7 @@ permalink: /documents/Distributed_Image_Storage_Server_zimg/
 然而由于移动设备普及等原因，对图片服务器的存储能力提出了更高的要求，不仅需要支持更大的容量，还要具备冗余备份等功能。我也一直在寻找解决办法，希望使zimg满足大家的需求。  
 
 更新：增加介绍zimg使用手册  
-[http://zimg.buaa.us/guidebook.html](http://zimg.buaa.us/guidebook.html)
+[http://zimg.buaa.us/documents/guidebook/](/documents/guidebook/)
 
 ## 分布式存储
 无论硬盘多么廉价，单机存储容量总是会有上限的，现在可能连一个中小网站所需要的图片都存不下了。分布式存储将数据分布存储于多台服务器上，一台不够了再加一台，理论上讲存储容量是无上限的。而且提高了存储服务的可靠性，如果机器够多，存储都做了冗余，那么即使某些机器出现故障无法服务，也可以方便地切换到备用服务器上，保证整体服务可用。  
@@ -57,7 +57,7 @@ Beansdb和SSDB不仅分别代表了memcached协议和Redis协议，也代表了�
 直接存取磁盘的模式也没有移除，方便那些只想用一台起了zimg的单机做图片服务器的朋友们。  
 ### 数据分片
 确定了存储后端之后，其实已经拥有了replication的能力，zimg急需具备数据水平分片的功能。Memcached和Redis协议，数据分片，这些需求放在一起之后有没有觉得很眼熟，没错，如果你的服务中有用到过这两款NoSQL数据库，你肯定也曾想办法解决过它们的分片问题，那么最简单的方案就出来了：twemproxy。  
-[Twemproxy](https://github.com/twitter/twemproxy)是Twitter出的memcached和redis代理，支持数据分片，而且还受到过redis作者本人的赞扬，可见其设计的独到之处。我觉得即使是自己在zimg里写一套分片逻辑，也肯定没有twemproxy性能好。twemproxy使用非常方便，参照zimg包内自带的[样例配置](https://github.com/buaazp/zimg/blob/master/test/zimg.yml)简单修改之后就可以使用。  
+[Twemproxy](https://github.com/twitter/twemproxy)是Twitter出的memcached和redis代理，支持数据分片，而且还受到过redis作者本人的赞扬，可见其设计的独到之处。我觉得即使是自己在zimg里写一套分片逻辑，也肯定没有twemproxy性能好。twemproxy使用非常方便，参照zimg包内自带的[样例配置](https://github.com/buaazp/zimg/blob/master/bin/conf/twemproxy.yml)简单修改之后就可以使用。  
 > 需要注意的是，twemproxy不支持memcached的binary protocol，[详情在此](https://github.com/twitter/twemproxy/blob/master/notes/memcache.txt)，因此zimg连接beansdb时默认不使用二进制协议，如果你不需要数据分片，可以简单修改源码来启用。  
 
 由于引入了twemproxy，毕竟是多了一层代理，虽然有人说它最多只会比裸连慢20%，但本着实事求是的原则，我们还是要亲自测试一下才能知道，于是我又做了相关的测试，twemproxy后面各带两个beansdb和SSDB实例，测试结果如图所示：  
