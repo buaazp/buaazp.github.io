@@ -41,7 +41,7 @@ http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=500&h=500&g=1&r=45&q=75&f
 
 #### 需求三：获取大小为300*300的图片，由于与原图比例不同，尽可能展示最多的图片内容，缩放之后多余的部分需要裁掉
 
-参数中同时提供长和宽，会隐式附带缩放参数`p=2`，此方式为对人类最舒适的定面积裁剪方式。处理过的图片如下：
+参数中同时提供长和宽，同样会隐式附带缩放参数`p=1`，此方式为对人类最舒适的定面积裁剪方式。处理过的图片如下：
 
 ![](http://ww4.sinaimg.cn/large/4c422e03jw1ejk50r088vj208c08c3yq.jpg)
 
@@ -49,7 +49,7 @@ http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=500&h=500&g=1&r=45&q=75&f
 
 #### 需求四：获取大小为300*300的图片，但是不需要缩放，只用展示图片核心内容即可
 
-此需求其实是需要裁剪图片中央区域指定大小的内容，没有缩放过程，需要手动指定处理方式`p=3`，此方式为最能突出核心内容的定面积裁剪方式。处理过的图片如下：
+此需求其实是需要裁剪图片中央区域指定大小的内容，没有缩放过程，需要手动指定处理方式`p=2`，此方式为最能突出核心内容的定面积裁剪方式。处理过的图片如下：
 
 ![](http://ww1.sinaimg.cn/large/4c422e03jw1ejk58hof69j208c08ct93.jpg)
 
@@ -278,14 +278,14 @@ mc_port         = 11211
 --log config
 --log_level output specified level of log to logfile
 --[[
-LOG_FATAL 0           System is unusable
-LOG_ALERT 1           Action must be taken immediately
-LOG_CRIT 2            Critical conditions
-LOG_ERROR 3           Error conditions
-LOG_WARNING 4         Warning conditions
-LOG_NOTICE 5          Normal, but significant
-LOG_INFO 6            Information
-LOG_DEBUG 7           DEBUG message
+LOG_FATAL 0     System is unusable
+LOG_ALERT 1     Action must be taken immediately
+LOG_CRIT 2      Critical conditions
+LOG_ERROR 3     Error conditions
+LOG_WARNING 4   Warning conditions
+LOG_NOTICE 5    Normal, but significant
+LOG_INFO 6      Information
+LOG_DEBUG 7     DEBUG message
 ]]
 --输出log级别
 log_level       = 6
