@@ -6,82 +6,49 @@ permalink: /documents/guidebook/
 
 ### 运行
 
-在运行zimg之前，你需要按照[《Install文档》](/documents/install)的说明进行安装，zimg安装成功之后，如果需要启用缓存，你需要运行memcached；如果后端选择beansdb或SSDB，你需要按自己需要启动这些后端的一个或多个实例；如果需要使用twemproxy进行数据分片，可以使用以下配置文件启动：
-
-```bash
-beansdb:
-  listen: 127.0.0.1:22121
-  hash: fnv1a_64
-  distribution: ketama
-  timeout: 400
-  backlog: 1024
-  preconnect: true
-  auto_eject_hosts: true
-  server_retry_timeout: 2000
-  server_failure_limit: 3
-  servers:
-   - 127.0.0.1:7900:1 beansdb1
-   - 127.0.0.1:7901:1 beansdb2
-
-ssdb:
-  listen: 127.0.0.1:22122
-  hash: fnv1a_64
-  distribution: ketama
-  redis: true
-  timeout: 400
-  backlog: 1024
-  preconnect: true
-  auto_eject_hosts: true
-  server_retry_timeout: 2000
-  server_failure_limit: 3
-  servers:
-   - 127.0.0.1:6380:1 ssdb1
-   - 127.0.0.1:6381:1 ssdb2
-```
-
-zimg本身的所有选项都在配置文件中进行配置，你可以根据自己的需要修改配置文件：
+在运行zimg之前，你需要按照[《Install文档》](/documents/install)的说明进行安装，zimg安装成功之后，即可简单修改配置文件后启动。zimg本身的所有选项都在配置文件中进行配置，你可以根据自己的需要修改配置文件：
 
 ```lua
 --zimg server config
 
 --server config
 --是否后台运行
-is_daemon=1
+is_daemon       = 1
 --绑定IP
-ip='0.0.0.0'
+ip              = '0.0.0.0'
 --端口
-port=4869
+port            = 4869
 --运行线程数，默认值为服务器CPU数
 --thread_num=4
-backlog_num=1024
-max_keepalives=1
-retry=3
-system=io.popen('uname -sn'):read('*l')
-pwd=io.popen('pwd'):read('*l')
+backlog_num     = 1024
+max_keepalives  = 1
+retry           = 3
+system          = io.popen('uname -sn'):read('*l')
+pwd             = io.popen('pwd'):read('*l')
 
 --header config
---返回所带的HTTP header
-headers='Cache-Control:max-age=7776000'
+--返回时所带的HTTP header
+headers         = 'Cache-Control:max-age=7776000'
 --是否启用etag缓存
-etag=1
+etag            = 1
 
 --access config
 --support mask rules like 'allow 10.1.121.138/24'
 --NOTE: remove rule can improve performance
 --上传接口的IP控制权限，将权限规则注释掉可以提升服务器处理能力，下同
---upload_rule='allow all'
+--upload_rule   = 'allow all'
 --下载接口的IP控制权限
---download_rule='allow all'
+--download_rule = 'allow all'
 --管理接口的IP控制权限
-admin_rule='allow 127.0.0.1'
+admin_rule      = 'allow 127.0.0.1'
 
 --cache config
 --是否启用memcached缓存
-cache=1
+cache           = 1
 --缓存服务器IP
-mc_ip='127.0.0.1'
+mc_ip           = '127.0.0.1'
 --缓存服务器端口
-mc_port=11211
+mc_port         = 11211
 
 --log config
 --log_level output specified level of log to logfile
@@ -96,56 +63,58 @@ LOG_INFO 6            Information
 LOG_DEBUG 7           DEBUG message
 ]]
 --输出log级别
-log_level=6
+log_level       = 6
 --输出log路径
-log_name= pwd .. '/log/zimg.log'
+log_name        = pwd .. '/log/zimg.log'
 
 --htdoc config
 --默认主页html文件路径
-root_path= pwd .. '/www/index.html'
+root_path       = pwd .. '/www/index.html'
 --admin页面html文件路径
-admin_path= pwd .. '/www/admin.html'
+admin_path      = pwd .. '/www/admin.html'
 
 --image process config
 --禁用URL图片处理
-disable_args=0
+disable_args    = 0
 --禁用lua脚本图片处理
-disable_type=0
+disable_type    = 0
 --lua process script
 --lua脚本文件路径
-script_name= pwd .. '/script/process.lua'
+script_name     = pwd .. '/script/process.lua'
 --format value: 'none' for original or other format names
 --默认保存新图的格式，字符串'none'表示以原有格式保存，或者是期望使用的格式名
-format='jpeg'
+format          = 'jpeg'
 --quality value: 1~100(default: 75)
 --默认保存新图的质量
-quality=75
+quality         = 75
 
 --storage config
 --zimg support 3 ways for storage images
---存储后端类型，1为本地存储，2为beansdb后端，3为SSDB后端
-mode=1
+--存储后端类型，1为本地存储，2为memcached协议后端如beansdb，3为redis协议后端如SSDB
+mode            = 1
 --save_new value: 0.don't save any 1.save all 2.only save types in lua script
 --新文件是否存储，0为不存储，1为全都存储，2为只存储lua脚本产生的新图
-save_new=1
+save_new        = 1
 --上传图片大小限制，默认100MB
-max_size=100*1024*1024
+max_size        = 100*1024*1024
+--允许上传图片类型列表
+allowed_type    = {'jpeg', 'jpg', 'png', 'gif', 'webp'}
 
 --mode[1]: local disk mode
 --本地存储时的存储路径
-img_path= pwd .. '/img'
+img_path        = pwd .. '/img'
 
 --mode[2]: beansdb mode
 --beansdb服务器IP
-beansdb_ip='127.0.0.1'
+beansdb_ip      = '127.0.0.1'
 --beansdb服务器端口
-beansdb_port='7900'
+beansdb_port    = 7900
 
 --mode[3]: ssdb mode
 --SSDB服务器IP
-ssdb_ip='127.0.0.1'
+ssdb_ip         = '127.0.0.1'
 --SSDB服务器端口
-ssdb_port='8888'
+ssdb_port       = 8888
 ```
 
 然后启动zimg：
@@ -186,10 +155,10 @@ curl -F "blob=@testup.jpeg;type=image/jpeg" "http://127.0.0.1:4869/upload"
 curl -H "Content-Type:jpeg" --data-binary @testup.jpeg "http://127.0.0.1:4869/upload"
 {"ret":true,"info":{"md5":"5f189d8ec57f5a5a0d3dcba47fa797e2","size":29615}}
 ```
-可以看到，由于是直接上传raw-post，zimg要求客户端提供`Content-Type`这个Header，如果Content-Type不是以下四种图片类型上传请求将失败并返回错误：
+可以看到，由于是直接上传raw-post，zimg要求客户端提供`Content-Type`这个Header，如果Content-Type不在配置项`allowed_type`中，上传请求将失败并返回错误。默认配置为：
 
-```
-{"jpeg", "gif", "png", "webp"}
+```lua
+allowed_type = {'jpeg', 'jpg', 'png', 'gif', 'webp'}
 ```
 
 目前返回结果将以json形式返回图片的MD5、size等信息，如果上传失败，结果中的`ret=false`，同时包含了具体的错误信息，客户端可根据错误原因进行统计和后续处理。
@@ -407,13 +376,45 @@ header配置数量并无限制，用`;`进行分割，唯一需要注意的是�
 
 ### 部署
 
-zimg v3.0 的架构与 v2.0相比没有变化，由于加强了实时处理能力，大型图床服务可以采用同时启用多台zimg，前端引入LVS的方式来进行负载均衡，每一台zimg都是无状态的，它们可以同时配置相同的存储后端。具体的设计还要根据具体的需求和实际的压力情况进行调整，在此列出一个示意架构图作为示范：
+zimg v3.1 的架构与 v2.0相比没有变化，由于加强了实时处理能力，大型图床服务可以采用同时启用多台zimg，前端引入LVS的方式来进行负载均衡，每一台zimg都是无状态的，它们可以同时配置相同的存储后端。具体的设计还要根据具体的需求和实际的压力情况进行调整，在此列出一个示意架构图作为示范：
 
 ![arch](http://ww2.sinaimg.cn/large/4c422e03jw1ejjdg5puouj20kf0modkf.jpg)
 
+如果需要启用缓存，你需要运行memcached；如果后端选择beansdb或SSDB，你需要按自己需要启动这些后端的一个或多个实例；如果需要使用twemproxy进行数据分片，可以使用以下配置文件启动：
+
+```bash
+beansdb:
+  listen: 127.0.0.1:22121
+  hash: fnv1a_64
+  distribution: ketama
+  timeout: 400
+  backlog: 1024
+  preconnect: true
+  auto_eject_hosts: true
+  server_retry_timeout: 2000
+  server_failure_limit: 3
+  servers:
+   - 127.0.0.1:7900:1 beansdb1
+   - 127.0.0.1:7901:1 beansdb2
+
+ssdb:
+  listen: 127.0.0.1:22122
+  hash: fnv1a_64
+  distribution: ketama
+  redis: true
+  timeout: 400
+  backlog: 1024
+  preconnect: true
+  auto_eject_hosts: true
+  server_retry_timeout: 2000
+  server_failure_limit: 3
+  servers:
+   - 127.0.0.1:6380:1 ssdb1
+   - 127.0.0.1:6381:1 ssdb2
+```
 
 ### 尾声
-需要提醒的是，zimg并非稳定可靠的线上业务，它只适用于中小型的图床服务，由于众多新特性的引入，难免会有bug存在，如果你发现某些不符合预期的结果或者崩溃，请到github issue上进行提交，作者将会及时跟进解决。另外zimg源码并不复杂，如果你需要的功能zimg不支持，可以很轻易地进行修改使用。
+需要提醒的是，zimg并非稳定可靠的线上业务，它只适用于中小型的图床服务，由于众多新特性的引入，难免会有bug存在，如果你发现某些不符合预期的结果或者崩溃，请到[Github Issue](https://github.com/buaazp/zimg/issues)上进行提交，作者将会及时跟进解决。另外zimg源码并不复杂，如果你需要的功能zimg不支持，可以很轻易地进行修改使用。
 
 
 
