@@ -271,8 +271,9 @@ http://127.0.0.1:4869/5f189d8ec57f5a5a0d3dcba47fa797e2?p=0
 
 需求十一：获取指定格式的图片
 
-如果需要转换为特定格式的图片，可以指定参数`f=webp`，具体的值为图片格式名，如jpeg, png, gif, webp等，不同格式的图片有不同的特性，其中jpeg格式浏览兼容性最好，webp格式图片体积最小。  
-请求地址：http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&f=jpeg
+如果需要转换为特定格式的图片，可以指定参数`f=webp`，具体的值为图片格式名，如jpeg, png, gif, webp等，不同格式的图片有不同的特性，其中jpeg格式浏览兼容性最好，webp格式图片体积最小。参考[支持的格式列表](http://www.imagemagick.org/script/formats.php)。  
+需要特别提醒的是，如果想要转换成特殊的格式，需要安装对应格式图片的编解码包。  
+请求地址：http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&f=png
 
 需求十二：获取图片信息
 
