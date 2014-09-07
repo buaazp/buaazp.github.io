@@ -13,13 +13,13 @@ Project zimg is open source software. The author of zimg [buaazp](http://blog.bu
 - weibo: [@招牌疯子](http://weibo.com/buaazp)
 - twitter: [@buaazp](http://twitter.com/buaazp)
 
-The github issue page is our recommend way to submit your questions of zimg:
+The github issue page is our recommended way to submit your questions of zimg:
 
 - [Github Issues](https://github.com/buaazp/zimg/issues)
 
-If you are interested in zimg project and willing to help the author supporting users, please contact buaazp by email.
+If you are interested in zimg project and willing to help the author support users, please contact buaazp by email.
 
 ### Commercial Support
 
-If you need commercial support, commercial cooperation, customize function in zimg, or if you want to donate and be a sponsor of zimg project, you can send an email to `zp@buaa.us` for more information.
+If you need commercial support, commercial cooperation, customized function in zimg, or if you want to donate and be a sponsor of zimg project, you can send an email to `zp@buaa.us` for more information.
 
