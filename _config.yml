@@ -1,5 +1,6 @@
 name: "zimg"
 description: "A lightweight and high performance image storage and processing system."
+baseurl: /
 
 #markdown: kramdown
 markdown: redcarpet
