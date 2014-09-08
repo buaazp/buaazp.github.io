@@ -23,16 +23,28 @@ Or you can download all the old versions from the release page: [All Releases](h
 
 Source build is our recommended way to get zimg. If you are skilled in your operating system, you can build a binary package like RPM or DEB for it. We will appreciate your work and list your packages here to make others use zimg easily.
 
+**RPM for OpenSUSE**
+
+- RPM: [zimg-3.1.0-Release.x86_64.rpm](https://github.com/buaazp/zimg/releases/download/v3.1.0/zimg-3.1.0-Release.x86_64.rpm)
+- Install: `sudo rpm -ivh zimg-3.1.0-Release.x86_64.rpm`
+- Run: `/usr/local/zimg/zimg /usr/local/zimg/conf/zimg.lua`
+
+**DEB for Ubuntu**
+
+- DEB: [zimg-3.1.0-stable-1ubuntu1-amd64.deb](https://github.com/buaazp/zimg/releases/download/v3.1.0/zimg-3.1.0-stable-1ubuntu1-amd64.deb)
+- Install: `sudo dpkg -i zimg-3.1.0-stable-1ubuntu1-amd64.deb`
+- Run: `/usr/local/zimg/zimg /usr/local/zimg/conf/zimg.lua`
+
 ### ChangeLog
 
 ##### 09/09/2014 - zimg v3.1.0
 
-- More parameters in url to processing image.
-- Support lua scripts to deal with customize compress strategy.
+- More parameters in url for processing image.
+- Support lua scripts to deal with customized compress strategy.
 - Broswer and client cache control.  
 - Admin page and delete image function.  
 - Best parser for multipart/form uploads.  
-- Support binary upload and json result.  
+- Support raw post upload and json result.  
 - More config options for operation and maintenance.  
 
 ##### 06/10/2014 - zimg v2.2.0
