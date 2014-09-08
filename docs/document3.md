@@ -106,7 +106,7 @@ http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=500&h=500&g=1&r=45&q=75&f
 
 #### 需求十二：获取图片信息
 
-为了编程方便，你可能需要获取图片的部分信息，可以通过参数`info=1`来完成。  
+为了编程方便，你可能需要获取图片的部分信息，可以通过接口`/info?md5=xxx`来完成。  
 请求地址：http://demo.buaa.us/info?md5=5f189d8ec57f5a5a0d3dcba47fa797e2
 
 此接口获取到json格式的数据，内容如下：  
@@ -157,7 +157,7 @@ http://127.0.0.1:4869/admin?md5=5f189d8ec57f5a5a0d3dcba47fa797e2&t=1
 它可以将图片转化为300*300，旋转90°，压缩率75%，灰白，格式为webp的图像。只需通过如下请求即可获得：  
 http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?t=test
 
-可以发现，lua脚本的支持对于已有固定处理方式的场景更加方便，比如你可以定义针对不同手机的格式ios7, android440, 或者不同尺寸的格式large, middle, square500 等等，随便你怎么设计，每种格式的处理方式都不同，你可以在lua中尽情发挥，就像在nginx里写ngx-lua一样爽。更多关于zimg-lua的使用方法请参考[《API of zimg-lua》](/documents/api_of_zimg_lua/)，相信你一看就会。
+可以发现，lua脚本的支持对于已有固定处理方式的场景更加方便，比如你可以定义针对不同手机的格式ios7, android440, 或者不同尺寸的格式large, middle, square500 等等，随便你怎么设计，每种格式的处理方式都不同，你可以在lua中尽情发挥，就像在nginx里写ngx-lua一样爽。更多关于zimg-lua的使用方法请参考[《API of zimg-lua》](/documents/api_of_zimg_lua/)，除此之外还有一个更加复杂的例子`bin/script/process.lua`可供参考，相信你一看就可以上手。
 
 这时候有的同学可能会问了，你这zimg本来不就是为了更快才做的吗，你用lua肯定会慢啊，那我何不直接采用ngx-lua来实现呢？  
 答案是，一点都不慢。  
