@@ -5,6 +5,8 @@ permalink: /documents/benchmark_v3/
 ---
 
 
+NOTE: **This benchmark is for zimg v3.0.0 which is using webimg library. But v3.0.0 is not released because of the license of webimg. The latest version of zimg is v3.1.0 which is using imagemagick as its image processing library. Imagemagick is much slower than webimg. So this benchmark test is just to show the ability of zimg-lua.**
+
 ### Benchmark Tnfomation
 
 We used webimg to replace imagemagick as a new image processing library in zimg since v3.0. This benchmark test will show you how fast webimg is. 
