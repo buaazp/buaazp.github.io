@@ -66,8 +66,9 @@ make && make install
 #### libevent
 
 ```bash
-wget http://cloud.github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz 
-tar zxvf libevent-2.0.17-stable.tar.gz 
+wget http://cloud.github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+tar zxvf libevent-2.0.17-stable.tar.gz
+cd libevent-2.0.17-stable
 ./configure --prefix=/usr/local 
 make && make install 
 ```
@@ -92,6 +93,7 @@ Just using your system package. Source build is unnecessary.
 
 ```bash
 wget http://downloads.webmproject.org/releases/webp/libwebp-0.4.1.tar.gz
+tar zxvf libwebp-0.4.1.tar.gz
 cd libwebp-0.4.1
 ./configure
 make
