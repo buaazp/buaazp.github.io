@@ -7,7 +7,7 @@ permalink: /documents/
 ### Synopsis
 
 - The zimg is an image storage and processing server. You can get a compressed and scaled image from zimg with the parameters of URL.  
-http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=500&h=500&g=1x=0&y=0&r=45&q=75&f=jpeg
+http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=500&h=500&g=0&x=0&y=0&r=45&q=75&f=jpeg
 
 - The parameters contain width, height, resize type, gray, crop postion (x, y), rotate, quality and format. And you can control the default type of images by configuration file.  
 And you can get the information of image in zimg server like this:  
