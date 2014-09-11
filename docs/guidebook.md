@@ -240,7 +240,7 @@ Address: http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&g=1
 Example 9: Get the compressed image with a certain quality
 
 Add `q=80` into the URL:  
-请求地址：http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&q=80
+Address: http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&q=80
 
 Example 10: Change the format of image
 
