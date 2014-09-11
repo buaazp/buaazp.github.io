@@ -221,7 +221,6 @@ Add `x=200&y=100` into URL will crop the image from the position:
 
 Address: http://demo.buaa.us/5f189d8ec57f5a5a0d3dcba47fa797e2?w=300&h=300&x=200&y=100
 
-需求八：获取旋转后的图片
 Example 7: Get the rotated image
 
 Add `r=45` into the URL:
