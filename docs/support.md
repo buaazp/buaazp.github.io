@@ -6,7 +6,7 @@ permalink: /support/
 
 ### Author Support
 
-Project zimg is open source software. The author of zimg [buaazp](http://blog.buaa.us) is supporting assistance of using and redeveloping zimg. All the contact information of buaazp is below:
+Project zimg is open source software. The author of zimg [buaazp](http://blog.buaa.us) is supporting assistance of using and redeveloping zimg. All the contact information of buaazp is as below:
 
 - email: zp@buaa.us
 - blog: [blog.buaa.us](http://blog.buaa.us)
