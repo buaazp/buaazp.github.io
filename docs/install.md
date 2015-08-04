@@ -67,8 +67,8 @@ make && make install
 
 ```bash
 wget http://cloud.github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
-tar zxvf libevent-2.0.17-stable.tar.gz
-cd libevent-2.0.17-stable
+tar zxvf libevent-2.0.21-stable.tar.gz
+cd libevent-2.0.21-stable
 ./configure --prefix=/usr/local 
 make && make install 
 ```
@@ -103,9 +103,9 @@ sudo make install
 #### imagemagick
 
 ```bash
-wget http://www.imagemagick.org/download/ImageMagick-6.8.9-7.tar.gz
-tar xzvf ImageMagick-6.8.9-7.tar.gz 
-cd ImageMagick-6.8.9-7
+wget http://www.imagemagick.org/download/ImageMagick.tar.gz
+tar zxvf ImageMagick.tar.gz
+cd ImageMagick-6.9.1-10
 ./configure  --prefix=/usr/local 
 make && make install 
 ```
